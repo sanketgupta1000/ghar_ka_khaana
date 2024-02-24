@@ -8,7 +8,7 @@ class Foodie(User):
 
 
 class Address(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(Foodie, on_delete=models.CASCADE)
     residence_id = models.CharField(max_length=30, help_text="Enter a name or number of your residence")
     residency = models.CharField(max_length=30, help_text="Enter your society or apartment name")
     street = models.CharField(max_length=30, help_text="Enter your street name")
