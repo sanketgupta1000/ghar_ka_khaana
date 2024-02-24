@@ -1,13 +1,16 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 from django.core.validators import MinValueValidator, RegexValidator
+from user.models import Account
+
 
 # Create your models here.
 
 # model to represent a kitchen
-class Kitchen(User):
+class Kitchen( ):
     
     # extra fields here
+    account = models.OneToOneField(Account, on_delete=models.CASCADE)
 
     # status of kitchen: online or offline
     status = models.CharField(max_length=50, default="off", choices=[("on","online"), ("off","offline")])

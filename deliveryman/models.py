@@ -1,10 +1,13 @@
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 from order.models import OrderSummary
+from user.models import Account
 
 # Create your models here.
-class DeliveryMan(User):
+class DeliveryMan(models.Model):
 
+    account = models.OneToOneField(Account, on_delete=models.CASCADE)
+    
     # Delivery man status sawing that he/she are available for delivery or not 
     status = models.CharField(max_length=10,default="inactive")
 
