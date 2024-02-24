@@ -10,7 +10,7 @@ class Kitchen(User):
     # extra fields here
 
     # status of kitchen: online or offline
-    status = models.CharField(max_length=50, default="off", choices={"on":"online", "off":"offline"})
+    status = models.CharField(max_length=50, default="off", choices=[("on","online"), ("off","offline")])
 
     # address of kitchen
     residence_id = models.CharField(max_length=30, help_text="Enter a name or number of your residence")

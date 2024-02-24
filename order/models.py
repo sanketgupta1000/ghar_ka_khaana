@@ -11,7 +11,7 @@ class OrderSummary(models.Model):
     foodie = models.ForeignKey(Foodie, on_delete=models.CASCADE)
 
     # current status of order
-    status = models.CharField(max_length = 50, default="ip", choices = {"ip":"In Progress","done":"Delivered"}) 
+    status = models.CharField(max_length = 50, default="ip", choices = [("ip","In Progress"),("done", "Delivered")]) 
 
     # total price of order
     total_price = models.IntegerField()
