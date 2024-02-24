@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from order.models import OrderSummary
 
 # Create your models here.
 class DeliveryMan(User):
