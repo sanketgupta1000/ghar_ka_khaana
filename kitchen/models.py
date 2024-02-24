@@ -12,6 +12,13 @@ class Kitchen(User):
     # status of kitchen: online or offline
     status = models.CharField(max_length=50, default="off", choices={"on":"online", "off":"offline"})
 
+    # address of kitchen
+    residence_id = models.CharField(max_length=30, help_text="Enter a name or number of your residence")
+    residency = models.CharField(max_length=30, help_text="Enter your society or apartment name")
+    street = models.CharField(max_length=30, help_text="Enter your street name")
+    area = models.CharField(max_length=30, help_text="Enter your area of city")
+    pincode = models.CharField(max_length=6, validators=[RegexValidator(regex=r"^\d{6}$", message="Pincode must be of 6 digits")], help_text="Enter your postal code")
+
 
 # model defination of "Tiffin"
 class Tiffin(models.Model):
