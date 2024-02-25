@@ -1,11 +1,221 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ghar ka khaana</title>
-</head>
-<body>
-    Ghar ka khaana landing page
-</body>
-</html>
+
+{% extends 'base.html' %}
+
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{{% block title %} 
+    <title>ghar ka khana</title>
+{% endblock %}}
+  
+{% block main %} 
+
+<main id="main">
+    
+    <!-- ======= Featured Services Section ======= -->
+    <section id="featured-services" class="featured-services section-bg">
+        <div class="container">
+            
+            <div class="row no-gutters">
+                <div class="col-lg-4 col-md-6">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bi bi-laptop"></i></div>
+                        <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad adipisci esse sapiente enim, alias neque?</p>
+                    </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="icon-box">
+                <div class="icon"><i class="bi bi-briefcase"></i></div>
+                <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, amet aspernatur saepe nihil vero reprehenderit.</p>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="icon-box">
+                <div class="icon"><i class="bi bi-calendar4-week"></i></div>
+                <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur sapiente, maxime quasi quas eaque corrupti.</p>
+            </div>
+        </div>
+    </div>
+    
+</div>
+</section><!-- End Featured Services Section -->
+
+<!-- ======= About Us Section ======= -->
+<section id="about" class="about">
+    <div class="container">
+        
+        <div class="section-title">
+            <h2>About Us</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, eveniet tempore, iure earum sequi illo labore atque fuga tenetur veritatis culpa corrupti deleniti ullam, ea eum. Soluta itaque similique incidunt, iste nulla quo aut tenetur culpa libero eos laborum dicta nisi velit placeat veniam at qui debitis, distinctio sequi doloremque?</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-6 order-1 order-lg-2">
+                <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, beatae.</h3>
+                <p class="fst-italic">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua.
+                </p>
+                <ul>
+                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    <li><i class="bi bi-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+                </ul>
+                <p>
+                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+              culpa qui officia deserunt mollit anim id est laborum
+            </p>
+        </div>
+    </div>
+    
+</div>
+</section><!-- End About Us Section -->
+
+<!-- ======= Team Section ======= -->
+<section id="team" class="team section-bg">
+    <div class="container">
+        
+        <div class="section-title">
+            <h2>Team</h2>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <img src="{% static 'assets/img/team/vasu.jpg' %}" alt="">
+              <h4>Vasu Vekariya</h4>
+              <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+                <img src="{% static 'assets/img/team/harshpal.jpg' %}" alt="">
+                <h4>Harshpalsinh Zala</h4>
+                <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+                <img src="{% static 'assets/img/team/sanket.jpg' %}" alt="">
+                <h4>Sanket Gupta</h4>
+                <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+              <div class="member">
+              <img src="{% static 'assets/img/team/pradeep.jpg' %}" alt="">
+              <h4>Pradeep Mokariya</h4>
+              <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+</section><!-- End Team Section -->
+
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+    <div class="container">
+        
+        <div class="section-title">
+            <h2>Contact</h2>
+            <p>For any type of query contact us...</p>
+        </div>
+        
+        <div class="row">
+            
+            <div class="col-lg-5 d-flex align-items-stretch">
+                <div class="info">
+                    <div class="address">
+                        <i class="bi bi-geo-alt"></i>
+                        <h4>Location:</h4>
+                        <p>dharmsinh desai university</p>
+                    </div>
+                    
+                    <div class="email">
+                        <i class="bi bi-envelope"></i>
+                        <h4>Email:</h4>
+                        <p>gharkakhana321@gmail.com</p>
+                    </div>
+
+                    <div class="phone">
+                        <i class="bi bi-phone"></i>
+                        <h4>Call:</h4>
+                        <p>+91 9904661409</p>
+                    </div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10233.955312667005!2d72.88740040985031!3d22.672599511790814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e5adf2c171355%3A0xe1e974ce083657fb!2sDHARMSINH%20DESAI%20UNIVERSITY!5e0!3m2!1sen!2sin!4v1708827504103!5m2!1sen!2sin" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="name">Your Name</label>
+                        <input type="text" name="name" class="form-control" id="name" required>
+                    </div>
+                    <div class="form-group col-md-6 mt-3 mt-md-0">
+                        <label for="name">Your Email</label>
+                        <input type="email" class="form-control" name="email" id="email" required>
+                    </div>
+                </div>
+                <div class="form-group mt-3">
+                <label for="name">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject" required>
+            </div>
+            <div class="form-group mt-3">
+                <label for="name">Message</label>
+                <textarea class="form-control" name="message" rows="10" required></textarea>
+            </div>
+            <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+            </div>
+            <div class="text-center"><button type="submit">Send Message</button></div>
+        </form>
+    </div>
+    
+</div>
+
+</div>
+</section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+
+{% endblock %}
