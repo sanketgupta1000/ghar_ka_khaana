@@ -5,4 +5,6 @@ from django.contrib.auth.models import AbstractUser
 
 # custom user model
 class Account(AbstractUser):
-    pass
+    is_deliveryman = models.BooleanField()
+    is_foodie = models.BooleanField()
+    is_kitchen = models.BooleanField()
