@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
 {% block title %}
-<title>Register as foodie</title>
+Register as foodie
 {% endblock %}
 
 {% block main %}
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-4">
+        <div class="col-md-8">
             <div class="card m-4 p-4 shadow rounded">
                 <div class="card-body">
                     <h2 class="card-title text-center mb-4">Register: Foodie</h2>
@@ -29,7 +29,7 @@
                         </div>
                         {% endfor %}
                         
-                        <button type="submit" class="btn btn-primary">Register</button>
+                        <button type="submit" class="btn btn-success">Register</button>
                     </form>
                     <div class="text-center mt-3">
                         <p>Already have an account? <a href="{% url 'foodie:login' %}">Login here</a></p>
