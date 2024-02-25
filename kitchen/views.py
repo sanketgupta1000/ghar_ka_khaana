@@ -3,12 +3,14 @@ from .forms import KitchenCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from user.views import logout_required
+from .models import Tiffin, TiffinItem, TiffinItemCategory
+from datetime import date
 
 # Create your views here.
 def kitchen_login_required(request):
     user = request.user
-    if not (user.is_authenticated and user.is_foodie):
-        return redirect('foodie:login')
+    if not (user.is_authenticated and user.is_kitchen):
+        return redirect('kitchen:login')
     else:
         return None
 
@@ -16,7 +18,43 @@ def index(request):
     response = kitchen_login_required(request)
     if response is not None:
         return response
-    return render(request, 'kitchen/index.html')
+    
+    if request.method=='GET':
+        # fetch tiffin from DB
+        tiffins = Tiffin.objects.get(kitchen=request.user)
+        # to template
+        return render(request, "kitchen/index.html", {'tiffins': tiffins})
+    else:
+        # request via post
+        # getting params
+        bread = request.POST.get('bread')
+        bread_qty = request.POST.get('bread-qty')
+        veg1 = request.POST.get('veg1')
+        veg1_qty = request.POST.get('veg1-qty')
+        veg2 = request.POST.get('veg2')
+        veg2_qty = request.POST.get('veg2-qty')
+        dalrice = request.POST.get('dalrice')
+        dalrice_qty = request.POST.get('dalrice-qty')
+        price = request.POST.get('price')
+        # creating tiffin
+        tiffin = Tiffin(kitchen=request.user, price=price, date=date.today())
+        # save tiffin
+        tiffin.save()
+
+        # creating tiffin item objects and saving
+        tiffinitem1 = TiffinItem(category=TiffinItemCategory.objects.get(name='bread'), name=bread, tiffin=tiffin, qty_per_tiffin=bread_qty)
+        tiffinitem2 = TiffinItem(category=TiffinItemCategory.objects.get(name='veg1'), name=veg1, tiffin=tiffin, qty_per_tiffin=veg1_qty)
+        tiffinitem3 = TiffinItem(category=TiffinItemCategory.objects.get(name='veg2'), name=veg2, tiffin=tiffin, qty_per_tiffin=veg2_qty)
+        tiffinitem4 = TiffinItem(category=TiffinItemCategory.objects.get(name='dalrice'), name=dalrice, tiffin=tiffin, qty_per_tiffin=dalrice_qty)
+
+        tiffinitem1.save()
+        tiffinitem2.save()
+        tiffinitem3.save()
+        tiffinitem4.save()
+
+        # redirect to same page only
+        return redirect('kitchen:index')
+
 
 def register_view(request):
     response = logout_required(request)

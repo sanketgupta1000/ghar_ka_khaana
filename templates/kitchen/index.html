@@ -1,11 +1,103 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    {{ request.user.username }}
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}
+Kitchen | Home
+{% endblock %}
+
+{% block main %}
+    <div class="container text-center">
+        <div class="row">
+            {% for tiffin in tiffins %}
+            <div class="card col-lg-3 col-md-6 d-flex align-items-stretch bg-light-green m-3" style="width: 18rem;">
+                <img src="assets/img/thali/thali1.jpg" class="card-img-top  fix-img" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Tiffin</h5>
+                    <ul class="ul-none">
+
+                        {% for item in tiffin.tiffin_item_set %}
+                        <li>{{item.category.name}} : {{item.name}}</li>
+                        {% endfor %}
+                        <li>Price : {{tiffin.price}}</li>
+
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10 col-sm-11">
+                <div class="card mt-4 p-4 shadow rounded">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-4">Tifin creation form</h2>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <div class="row m-1">
+                                    <div class="col-2">
+                                        <label for="subji1" class="form-label">subji1</label>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" class="form-control bg" id="" name="veg1">
+                                    </div>
+                                    <div class="col-1">
+                                        <input type="number" class="form-control bg" name="veg1-qty"
+                                            style="width:100px;" id="" placeholder="Quantity">
+                                    </div>
+                                </div>
+                                <div class="row m-1">
+                                    <div class="col-2">
+                                        <label for="subji2" class="form-label">subji2</label>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" class="form-control bg" id="" name="veg2">
+                                    </div>
+                                    <div class="col-1">
+                                        <input type="number" class="form-control bg" name="veg2-qty"
+                                            style="width:100px;" id="" placeholder="Quantity">
+                                    </div>
+                                </div>
+                                <div class="row m-1">
+                                    <div class="col-2">
+                                        <label for="bread" class="form-label">Bread</label>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" class="form-control bg" id="" name="bread">
+                                    </div>
+                                    <div class="col-1">
+                                        <input type="number" class="form-control bg" name="bread-qty"
+                                            style="width:100px;" id="" placeholder="Quantity">
+                                    </div>
+                                </div>
+                                <div class="row m-1">
+                                    <div class="col-2">
+                                        <label for="dal" class="form-label">Dal Rice</label>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" class="form-control bg" id="" name="dalrice">
+                                    </div>
+                                    <div class="col-1">
+                                        <input type="number" class="form-control bg" name="dalrice-qty"
+                                            style="width:100px;" id="" placeholder="Quantity">
+                                    </div>
+                                </div>
+                                
+                                <!-- <div class="invalid-feedback">field.error_messages</div> -->
+                            </div>
+                            <div style="text-align: center;">
+                                <button type="submit" class="btn btn-success">Create tifin</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
