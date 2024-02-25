@@ -9,12 +9,6 @@ class FoodieCreationForm(UserCreationForm):
         model = Foodie
         fields = ['username', 'email', 'password1', 'password2', 'phone_number']
 
-class FoodieAuthenticationForm(AuthenticationForm):
-
-    class Meta:
-        model = Foodie
-        fields = ['username', 'password']
-
 class AddressCreationForm(forms.ModelForm):
 
     class Meta:
