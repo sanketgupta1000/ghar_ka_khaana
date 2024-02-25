@@ -1,15 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Login">
-    </form>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Login as foodie</title>
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card m-4 p-4 shadow rounded">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Login: Foodie</h2>
+                    <form method="POST">
+                        {% csrf_token %}
+                        
+                        {% for field in form %}
+                        <div class="mb-3 text-">
+                            <label for="{{ field.id_for_label }}" class="form-label">{{ field.label_tag }}</label>
+                            <input type="{{ field.field.widget.input_type }}" class="form-control" id="{{field.id_for_label}}" name="{{field.name}}">
+                            <div class="invalid-feedback">field.error_messages</div>
+                        </div>
+                        {% endfor %}
+                        
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p>Don't have an account? <a href="{% url 'foodie:register'%}">Create one here.</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+{% endblock %}

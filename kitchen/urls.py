@@ -5,8 +5,8 @@ app_name="kitchen"
 
 urlpatterns = [
     # path for account creation
-    path('register/', views.register_view, name="register_view"),
+    path('register/', views.register_view, name="register"),
     # path for login
-    path('login/', views.login_view, name="login_view"),
+    path('login/', views.login_view, name="login"),
     path('', views.index, name='index'),
 ]
