@@ -64,7 +64,7 @@
         <ul>
           {% if request.user.is_authenticated %}
             {% if request.user.is_foodie %}
-            <li><a class="nav-link" href="{% url 'foodie:inedx' %}">Home</a></li>
+            <li><a class="nav-link" href="{% url 'foodie:index' %}">Home</a></li>
             {% elif request.user.is_kitchen %}
             <li><a class="nav-link" href="{% url 'kitchen:index' %}">Home</a></li>
             {% endif %}
