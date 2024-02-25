@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate,login, logout
 from .models import *
 from .forms import *
 from user.views import logout_required
+from kitchen.models import Tiffin
 
 # Create your views here.
 def foodie_login_required(request):
@@ -17,7 +18,14 @@ def index(request):
     if response is not None:
         return response
 
-    return render(request, 'foodie/index.html')
+    if request.method=='GET':
+        # will show available tiffins
+
+        # getting all tiffins
+        tiffins = Tiffin.objects.all()
+
+        # render the template
+        return render(request, 'foodie/index.html', {'tiffins':tiffins})
 
 def register(request):
     response = logout_required(request)
