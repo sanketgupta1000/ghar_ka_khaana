@@ -7,7 +7,7 @@ from user.models import Account
 # Create your models here.
 
 # model to represent a kitchen
-class Kitchen( ):
+class Kitchen(models.Model):
     
     # extra fields here
     account = models.OneToOneField(Account, on_delete=models.CASCADE)
