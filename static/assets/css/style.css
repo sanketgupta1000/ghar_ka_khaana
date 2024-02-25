@@ -18,7 +18,11 @@ a {
   text-decoration: none;
   color: #5cb874;
 }
-
+.a{
+  color: #458b58;
+  text-align: center;
+  font-weight: 600;
+}
 .bg-green{
   background-color: #5cb874 ;
 }
