@@ -1,5 +1,8 @@
+
+
 {% extends 'base.html' %}
 
+{% load static %}
 {% block title %}
 Kitchen | Home
 {% endblock %}
@@ -7,14 +10,16 @@ Kitchen | Home
 {% block main %}
     <div class="container text-center">
         <div class="row">
+
+            
             {% for tiffin in tiffins %}
             <div class="card col-lg-3 col-md-6 d-flex align-items-stretch bg-light-green m-3" style="width: 18rem;">
-                <img src="assets/img/thali/thali1.jpg" class="card-img-top  fix-img" alt="...">
+                <img src="{% static 'assets/img/thali/thali1.jpg' %}" class="card-img-top  fix-img" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Tiffin</h5>
                     <ul class="ul-none">
 
-                        {% for item in tiffin.tiffin_item_set %}
+                        {% for item in tiffin.tiffinitem_set.all %}
                         <li>{{item.category.name}} : {{item.name}}</li>
                         {% endfor %}
                         <li>Price : {{tiffin.price}}</li>
@@ -90,7 +95,28 @@ Kitchen | Home
                                 <!-- <div class="invalid-feedback">field.error_messages</div> -->
                             </div>
                             <div style="text-align: center;">
-                                <button type="submit" class="btn btn-success">Create tifin</button>
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="dal" class="form-label">Price</label>
+                                    </div>
+                                    <div class="col">
+                                        <input type="number" class="form-control bg" name="price"
+                                        style="width:100px;" id="" placeholder="">
+                                    </div>
+                                    <div class="col">
+                                        <label for="dal" class="form-label">Max Quantity</label>
+                                    </div>
+                                    <div class="col">
+                                        <input type="number" class="form-control bg" name="max-qty"
+                                        style="width:100px;" id="" placeholder="">
+                                    </div>
+                                    <div class="col">
+                                        <button type="submit" class="btn btn-success">Create tifin</button>
+                                    </div>
+                                </div>
+                                
+                               
+                                
                             </div>
 
                         </form>

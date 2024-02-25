@@ -8,7 +8,7 @@ def logout_required(request):
             return redirect('foodie:index')
         elif request.user.is_kitchen:
             return redirect('kitchen:index')
-        else:
+        elif request.user.is_deliveryman:
             return redirect('deliveryman:index')
     else:
         return None
