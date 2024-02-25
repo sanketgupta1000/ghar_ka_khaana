@@ -4,9 +4,9 @@ from order.models import OrderSummary
 from user.models import Account
 
 # Create your models here.
-class DeliveryMan(models.Model):
 
-    account = models.OneToOneField(Account, on_delete=models.CASCADE)
+# model to represent delivery man
+class DeliveryMan(Account):
     
     # Delivery man status sawing that he/she are available for delivery or not 
     status = models.CharField(max_length=10,default="inactive")

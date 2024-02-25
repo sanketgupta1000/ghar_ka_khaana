@@ -7,10 +7,7 @@ from user.models import Account
 # Create your models here.
 
 # model to represent a kitchen
-class Kitchen(models.Model):
-    
-    # extra fields here
-    account = models.OneToOneField(Account, on_delete=models.CASCADE)
+class Kitchen(Account):
 
     # status of kitchen: online or offline
     status = models.CharField(max_length=50, default="off", choices=[("on","online"), ("off","offline")])

@@ -3,8 +3,7 @@ from django.db import models
 from user.models import Account
 
 # Create your models here.
-class Foodie(models.Model):
-    account = models.OneToOneField(Account, on_delete=models.CASCADE)
+class Foodie(Account):
     phone_number = models.CharField(validators=[RegexValidator(regex=r'^\d{10}$', message="Phone number must be of 10 digits.")], max_length=10, help_text='Enter phone number')
 
 
